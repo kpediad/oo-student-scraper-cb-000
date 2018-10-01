@@ -17,7 +17,7 @@ class Scraper
       attributes[:twitter] = link["href"] if link["href"].include?("twitter")
       attributes[:linkedin] = link["href"] if link["href"].include?("linkedin")
       attributes[:github] = link["href"] if link["href"].include?("github")
-      attributes[:blog] = link["href"]
+      attributes[:blog] = link["href"] if !link["href"].include?("twitter") && !link["href"].include?("linkedin") && !link["href"].include?("github")
     end
     attributes[:profile_quote] = doc.css(".profile-quote").text
     attributes[:bio] = doc.css(".description-holder p").text
