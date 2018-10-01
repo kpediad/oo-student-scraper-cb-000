@@ -20,7 +20,7 @@ class Scraper
       attributes[:blog] = link["href"]
     end
     attributes[:profile_quote] = doc.css(".profile_quote").text
-    attrubutes[:bio] = doc.css(".description-holder p").text
+    attributes[:bio] = doc.css(".description-holder p").text
     attributes
   end
 
