@@ -14,10 +14,10 @@ class Scraper
     doc = Nokogiri::HTML(open(profile_url))
     sm_links = doc.css(".social-icon-container a")
     sm_links.each do |link|
-      attributes[:twitter] = link.first["href"] if link.first["href"].include?("twitter")
-      attributes[:linkedin] = link.first["href"] if link.first["href"].include?("linkedin")
-      attributes[:github] = link.first["href"] if link.first["href"].include?("github")
-      attributes[:blog] = link.first["href"]
+      attributes[:twitter] = link["href"] if link["href"].include?("twitter")
+      attributes[:linkedin] = link["href"] if link["href"].include?("linkedin")
+      attributes[:github] = link["href"] if link["href"].include?("github")
+      attributes[:blog] = link["href"]
     end
     attributes[:profile_quote] = doc.css(".profile_quote").text
     attrubutes[:bio] = doc.css(".description-holder p").text
