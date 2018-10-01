@@ -19,7 +19,7 @@ class Scraper
       attributes[:github] = link["href"] if link["href"].include?("github")
       attributes[:blog] = link["href"]
     end
-    attributes[:profile_quote] = doc.css(".profile_quote").text
+    attributes[:profile_quote] = doc.css(".profile-quote").text
     attributes[:bio] = doc.css(".description-holder p").text
     attributes
   end
