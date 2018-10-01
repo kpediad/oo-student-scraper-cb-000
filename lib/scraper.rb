@@ -6,7 +6,7 @@ class Scraper
   def self.scrape_index_page(index_url)
     doc = Nokogiri::HTML(open(index_url))
     student_cards = doc.css(".student-card")
-    student_cards.collect {|card| {name: card.css(".card-text-container h4").text, location: card.css(".card-text-container p").text, profile_url: card.css("a").first["href"]}}
+    student_cards.collect {|card| {name: card.css(".card-text-container h4").text, location: card.css(".card-text-container p").text, profile_url: card.css("a")["href"]}}
   end
 
   def self.scrape_profile_page(profile_url)
